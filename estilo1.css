@@ -1,0 +1,379 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+    margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body.oscuro {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+body.oscuro #central,
+body.oscuro #encabezado,
+body.oscuro .opciones {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+#tema {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 22px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#cuerpo{
+    width: 100%;
+    height: auto;
+
+}
+.encabezado{
+         position: fixed;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color:rgb(26, 26, 26) ;
+     position: fixed;
+    }
+#titulo{
+    padding: 10px 200px 10px 110px;
+    color: aliceblue;
+font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+}
+.carrusel {
+    width: 100%;
+    height: 500px;
+    overflow: hidden; 
+    padding: 50px 0 0 0 ;
+}
+
+.carrusel img {
+    width: 100%;
+}
+
+.carrusel ul {
+    display: flex;
+    width: 300%;
+    padding: 0;
+    margin: 0;
+    
+    animation: slider 12s infinite alternate ease-in-out; 
+}
+
+.carrusel li {
+    list-style: none;
+    width: 100%;
+}
+
+
+@keyframes slider { 
+    0%   { margin-left: 0; }
+    30%  { margin-left: 0; }
+    
+    35%  { margin-left: -100%; }
+    65%  { margin-left: -100%; }
+    
+    70%  { margin-left: -200%; }
+    100% { margin-left: -200%; }
+}
+#games_nin{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 50px;
+    padding: 30px 0 0 0 ;
+}
+
+.juego{ 
+
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    text-align: center;
+    height: 300px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(238, 0, 0);
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.956)
+    ;
+    transition: transform 0.3s ease;
+}
+.juego:hover{
+    transform: scale(1.05);
+
+}
+.juego img{
+    width: 100%;
+    height: 225px;
+}
+#logo_N{
+    width: 90px;
+    height: 90px;
+    padding: 0;
+    border: 0;
+    
+}
+.cuerpo{
+    padding: 50px 0 0 0;
+}
+p{
+    text-align:left  ;
+    font-size: 17px; 
+    padding: 10px 0 10px 30%;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgba(81, 81, 81, 0.898);;
+}
+h3{
+    padding: 5px;
+    font-size: 18px;
+    }
+.juego_p img{
+    
+    width: 100%;
+    height: 225px;
+    }
+
+.juego_p{ 
+
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.956);
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    height: 300px;
+    color: rgb(255, 255, 255);
+    background-color:rgb(7, 7, 104);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    transition: transform 0.3s ease;
+}
+.juego_p:hover{
+    transform: scale(1.05);}
+
+button{
+    border: 0;
+    background-color: rgba(44, 44, 44, 0.636);
+    cursor: pointer;
+    padding: 0;
+    margin: 0 ;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.opciones {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 25px; 
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    background-color: rgb(26, 26, 26);
+    padding:0 0 0 14%;
+
+}
+
+#opcion {
+    text-decoration: none;
+    color: white;
+    padding: 6px;
+    border-radius: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+#opcion:hover{
+    color: #441eb8;
+    box-shadow: inset 0 110px rgba(255, 255, 255, 0.923);
+    transform: scale(1.1);
+    }
+.pie {
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 30px 0;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.pie p {
+    margin: 5px 0;
+    font-size: 20px;
+}
+#marca {
+    width: 30%;
+    padding: 0 0 0 35%;
+    margin: 0;
+}
+.menu_btn {
+    display: none;
+    }
+
+@media (max-width: 1270px) {
+    #marca {
+        width: 40%;
+        padding: 0 0 0 30%;
+    }
+
+    #titulo {
+        padding: 1% 0 0 45%;
+    }
+    .carrusel {
+    width: 100%;
+    height: 400px;
+    overflow: hidden; 
+    padding: 10px 0 0 0 ;
+}
+}
+
+@media (max-width: 950px) {
+    #games_nin {
+        gap: 23px;
+    }
+    .carrusel {
+    width: 100%;
+    height: 270px;
+    overflow: hidden; 
+    padding: 60px 0 0 0 ;
+}
+
+    #marca {
+        width: 50%;
+        padding: 0 0 0 25%;
+    }
+
+    #titulo {
+        padding: 1% 0 0 40%;
+    }
+
+    .juego:hover,
+    .juego_p:hover {
+        transform: scale(1.03);
+    }
+}
+
+@media (max-width: 690px) {
+    .juego_p,
+    .juego {
+        width: 170px;
+        height: 295px;
+        font-size:14px ;
+        font-size:16px ;
+
+    }
+    .carrusel {
+    width: 100%;
+    height: 220px;
+    overflow: hidden; 
+    padding: 80px 0 0 0 ;
+}
+
+    #games_nin {
+        gap: 23px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #marca {
+        width: 60%;
+        padding: 0 0 0 20%;
+    }
+
+    .juego:hover,
+    .juego_p:hover {
+        transform: scale(0.94);
+    }
+     #titulo {
+        padding: 1% 0 0 35%;
+        }
+
+}
+
+@media (max-width: 600px){
+ #games_nin {
+        gap: 23px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .juego_p,
+    .juego {
+        width: 250px;
+        height: 295px;
+        
+    }
+    .carrusel {
+    width: 100%;
+    height: 150px;
+    overflow: hidden; 
+    padding: 60px 0 0 0 ;
+}
+    p{
+        margin: 0 0 0 16px;
+    }
+    #titulo {
+        padding: 2% 0 0 10%;
+        font-size: 33px;
+        
+    }
+    #encabezado{
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (min-width: 300px) and (max-width: 1270px) {
+
+    .menu_btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        color: rgb(249, 247, 247);
+        font-size: 30px;
+        background-color: rgb(26, 26, 26);
+        border: 0;
+        cursor: pointer;
+    }
+
+    .opciones {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 52px;
+        width: 130px;
+        padding: 10px;
+        flex-direction: column;
+        gap: 15px;
+        background-color: rgb(26, 26, 26);
+        border-radius: 10px;
+    }
+
+    .opciones.mostrar {
+        display: flex;
+        border-radius: 10px;
+        text-align: center;
+        
+    }
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Juego - GamesCore</title>
+    <style>
+        .contenedor-detalle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 120px 20px 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #333;
+        }
+        .detalle-imagen img {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .detalle-info {
+            max-width: 500px;
+        }
+        .detalle-info h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #111;
+        }
+        .precio-destacado {
+            font-size: 26px;
+            font-weight: bold;
+            color: rgb(235, 9, 9);
+            margin-bottom: 20px;
+        }
+        .btn-comprar {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-comprar:hover {
+            background-color: rgb(255, 7, 7);
+        }
+        .volver-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+        }
+    </style>
+        <link rel="stylesheet" href="estilo1.css">
+
+</head>
+<body>
+
+    <div class="encabezado">
+        <h1 id="titulo">GamesCore</h1>
+        <label for="menu" class="menu_btn">☰</label>
+        <div class="opciones">
+            <a id="opcion" href="index.html" style="color: rgb(97, 8, 241);">Inicio</a>
+            <a id="opcion" href="nintendo.html">Nintendo</a>
+            <a id="opcion" href="play.html">PlayStation</a>
+            <a id="opcion" href="formulario.html">Contacto</a>
+            <a id="opcion" href="carrito.html" class="carrito-btn">🛒</a>
+        </div>
+    </div>   
+
+    <div class="contenedor-detalle">
+        <div class="detalle-imagen">
+            <img id="img-detalle" src="" alt="Juego">
+        </div>
+        <div class="detalle-info">
+            <h1 id="titulo-detalle">...</h1>
+            <p id="precio-detalle" class="precio-destacado"></p>
+            <h3>Descripción del producto</h3>
+            <p id="desc-detalle" style="line-height: 1.6; color: #8a8a8a; padding: 25px 0;"></p>
+            
+            <button id="btn-agregar-carrito" class="btn-comprar">Agregar al Carrito</button>
+            <br>
+            <a href="index.html" class="volver-link">← Volver al catálogo</a>
+        </div>
+    </div>
+    <div class="pie">
+    <p>© 2026 Mi pagina de videojuegos</p>
+    <p>Todos los derechos reservados</p>
+</div>
+
+    <script>
+        const baseDeDatos = {
+            'animal-crossing': {
+                titulo: 'Animal Crossing: New Horizons',
+                precio: 299.99,
+                imagen: 'img/nintendo_a.c',
+                descripcion: 'Construye tu propia isla paradisíaca desde cero. Explora, crea, personaliza y decora tu entorno en este relajante simulador de vida. Comparte la experiencia con amigos en línea o en modo local.'
+            },
+            'mario-kart': {
+                titulo: 'Mario Kart 8 Deluxe',
+                precio: 239.99,
+                imagen: 'img/nintendo_mario.avif',
+                descripcion: 'Compite con tus amigos en la versión definitiva de Mario Kart 8. Juega en cualquier lugar y en cualquier momento con circuitos renovados, nuevos personajes y modos de batalla mejorados.'
+            },
+            'smash-bros': {
+                titulo: 'Super Smash Bros. Ultimate',
+                precio: 239.99,
+                imagen: 'img/nintendo_S.S.B.avif',
+                descripcion: '¡Luchadores, escenarios y canciones se unen en el mayor crossover de la historia de los videojuegos! Juega cuando quieras y donde quieras para superar a tus rivales.'
+            },
+            'mario-odyssey': {
+                titulo: 'Super Mario Odyssey',
+                precio: 239.99,
+                imagen: 'img/nintendo_mario_O.avif',
+                descripcion: 'Embárcate en una aventura en 3D a través de enormes mundos abiertos inspirados en lugares reales. Usa la nueva habilidad de Cappy para poseer objetos, animales y enemigos.'
+            },
+            'zelda-botw': {
+                titulo: 'The Legend of Zelda: Breath of the Wild',
+                precio: 249.99,
+                imagen: 'img/nintendo_zelda.avif',
+                descripcion: 'Olvida todo lo que sabes sobre los juegos de Zelda. Entra en un mundo de descubrimientos, exploración y aventura en este impresionante éxito de mundo abierto.'
+            },
+            'metroid-dread': {
+                titulo: 'Metroid Dread',
+                precio: 239.99,
+                imagen: 'img/nintendo_metroid.avif',
+                descripcion: 'Únete a la cazarrecompensas Samus Aran mientras intenta escapar de un peligroso mundo alienígena amenazado por una mecánica y terrorífica amenaza robótica.'
+            },
+            'rdr2': {
+                titulo: 'Red Dead Redemption 2',
+                precio: 199.99,
+                imagen: 'img/play_rdr2.avif',
+                descripcion: 'Ganador de más de 175 premios al Juego del Año, RDR2 es una épica historia sobre el honor y la lealtad en el amanecer de los tiempos modernos del salvaje oeste.'
+            },
+            'spiderman2': {
+                titulo: 'Marvel’s Spider-Man 2',
+                precio: 249.99,
+                imagen: 'img/play_spi2.jpg',
+                descripcion: 'Los Spider-Men, Peter Parker y Miles Morales, regresan en una nueva y emocionante aventura de la aclamada franquicia para las consolas PlayStation.'
+            },
+            'gow': {
+                titulo: 'God of War Ragnarök',
+                precio: 249.99,
+                imagen: 'img/play_gow_r.webp',
+                descripcion: 'Emprende un viaje mítico y emotivo en busca de respuestas mientras Kratos y Atreus se preparan para la batalla profetizada que acabará con el mundo.'
+            },
+            'final-fantasy': {
+                titulo: 'Final Fantasy VII Remake',
+                precio: 259.99,
+                imagen: 'img/play_ff.jpg',
+                descripcion: 'Una reimpresionante recreación de uno de los juegos más visionarios de la historia, con un sistema de combate de acción profunda y gráficos espectaculares.'
+            },
+            'astro-bot': {
+                titulo: 'Astro Bot',
+                precio: 269.99,
+                imagen: 'img/play_astrobot.avif',
+                descripcion: 'Ayuda a Astro a rescatar a su tripulación perdida en una divertidísima y colorida aventura de plataformas diseñada para exprimir al máximo las capacidades del DualSense.'
+            },
+            'elden-ring': {
+                titulo: 'Elden Ring',
+                precio: 249.99,
+                imagen: 'img/play_eldentring.webp',
+                descripcion: 'Álzate, Sinluz, y déjate guiar por la gracia para empuñar el poder del Anillo de Elden y convertirte en un Señor del Círculo en las Tierras Intermedias.'
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const juegoKey = params.get('juego');
+        const juego = baseDeDatos[juegoKey] || {
+        };
+
+        document.getElementById('titulo-detalle').innerText = juego.titulo;
+        document.getElementById('precio-detalle').innerText = `S/ ${juego.precio.toFixed(2)}`;
+        document.getElementById('img-detalle').src = juego.imagen;
+        document.getElementById('desc-detalle').innerText = juego.descripcion;
+
+    </script>
+    <script>
+const boton = document.querySelector(".menu_btn");
+const menu = document.querySelector(".opciones");
+
+boton.addEventListener("mouseenter", function() {
+    menu.classList.toggle("mostrar");
+});
+
+</script>
+</body>
+</html>

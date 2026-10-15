@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo2.css">
+    
+</head>
+<body>
+    <div class= "encabezado">
+        <h1 id="titulo">GamesCore
+        </h1>
+         <label for="menu" class="menu_btn">☰</label>
+
+        <div class="opciones">
+            <a id="opcion" href="index.html">Inicio</a>
+            <a id="opcion" href="nintendo.html">Nintendo</a>
+            <a id="opcion" href="play.html">PlayStation</a>
+            <a id="opcion" href="formulario.html"  style="color: rgb(97, 8, 241);">Contacto</a>
+            <a id="opcion" href="carrito.html" class="carrito-btn">🛒</a>
+        </div>
+    </div>
+    <div id="central">  
+        
+        
+       
+
+<div class="contacto-container">
+    <h2>Contacto</h2>
+   
+    
+    <div class="contacto-grid">
+        <div class="contacto-info">
+            <div class="contacto-item">
+                <strong>Correo Electrónico:</strong>
+                <span>GamesCore@gmail.com</span>
+            </div>
+            <div class="contacto-item">
+                <strong>Ubicación:</strong>
+                <span>Lima, Perú</span>
+            </div>
+           
+            <div class="contacto-item">
+                <strong>Número:</strong>
+                <span>+51 914 240 014</span>
+            </div>
+        </div>
+
+        <form class="contacto-form" action="#" method="POST">
+             <div>
+                <label for="nombre">Nombre</label>
+                <input class="bloque" id="nombre" type="text" name="nombre" ngModel placeholder="Escribe aquí..." required minlength="3" >
+            </div>
+
+            <div>
+                <label for="correo">Correo Electrónico</label>
+                <input class="bloque" id="correo" type="email" name="correo" ngModel placeholder="Escribe aquí ..." required>
+            </div>
+
+            <div>
+                <label for="pass">Contraseña</label>
+                <input class="bloque" id="pass" type="password" name="pass" ngModel placeholder="Minimo 6 caracteres..." required minlength="6">
+            </div>
+
+            <div>
+            <button class="bloque" type="submit">Registrarse</button>
+            </div>
+        </form>
+    </div>
+</div>
+            <script>
+                 function enviar() {
+                 alert("Formulario enviado correctamente");
+                    }
+            </script>            
+     </div>
+     
+</div>
+<div class="pie">
+    <p>© 2026 Mi pagina de videojuegos</p>
+    <p>Todos los derechos reservados</p>
+</div>
+<script>
+const boton = document.querySelector(".menu_btn");
+const menu = document.querySelector(".opciones");
+
+boton.addEventListener("mouseenter", function() {
+    menu.classList.toggle("mostrar");
+});
+
+const buton = document.getElementById("tema");
+
+buton.addEventListener("click", function() {
+    document.body.classList.toggle("oscuro");
+});
+</script>
+
+</body>
+</html>

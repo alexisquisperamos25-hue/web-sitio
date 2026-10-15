@@ -1,0 +1,356 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detalle del Producto - GamesCore</title>
+    <link rel="stylesheet" href="estilo3.css">
+
+    <style>
+        .contenedor-detalle {
+            max-width: 900px;
+            margin: 100px auto 0;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        body.oscuro .contenedor-detalle {
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        .detalle-img {
+            width: 300px;
+            height: 320px;
+            object-fit: contain;
+            border-radius: 10px;
+            background-color: #f8f8f8;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .detalle-info {
+            max-width: 450px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .tag-marca {
+            display: inline-block;
+            background-color: rgb(0, 32, 173);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .detalle-info h2 {
+            color: #222;
+            font-size: 28px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        body.oscuro .detalle-info h2 {
+            color: white;
+        }
+
+        .precio {
+            font-size: 28px;
+            color: rgb(9, 13, 235);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .descripcion {
+            color: #555;
+            line-height: 1.6;
+            padding: 10px 0;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        body.oscuro .descripcion {
+            color: #ccc;
+        }
+
+        .acciones {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn-comprar {
+            background-color: white;
+            color: black;
+            border: 1px solid rgb(0, 0, 0);
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .btn-comprar:hover {
+            color: white;
+            transform: scale(1.03);
+            background-color: rgb(3, 6, 197);
+        }
+
+        .volver {
+            display: inline-block;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: color 0.2s ease;
+        }
+
+        .volver:hover {
+            color: rgb(3, 0, 153);
+        }
+
+        body.oscuro .volver {
+            color: #ddd;
+        }
+
+        body.oscuro .volver:hover {
+            color: #443d9c;
+        }
+
+        .pie {
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        @media (max-width: 650px) {
+            .contenedor-detalle {
+                margin: 90px 15px 0;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .detalle-img {
+                width: 100%;
+                max-width: 300px;
+                height: 260px;
+            }
+
+            .detalle-info {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .acciones {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="encabezado">
+        <h1 id="titulo">GamesCore</h1>
+
+        <label for="menu" class="menu_btn">☰</label>
+
+        <div class="opciones">
+            <a id="opcion" href="index.html">Inicio</a>
+            <a id="opcion" href="nintendo.html">Nintendo</a>
+            <a id="opcion" href="play.html">PlayStation</a>
+            <a id="opcion" href="formulario.html">Contacto</a>
+            <a id="opcion" href="carrito.html" class="carrito-btn">
+                🛒
+            </a>
+        </div>
+    </div>
+
+    <div class="contenedor-detalle">
+
+        <div>
+            <img
+                id="img-producto"
+                class="detalle-img"
+                src=""
+                alt="Imagen del producto"
+            >
+        </div>
+
+        <div class="detalle-info">
+            <span class="tag-marca">PlayStation</span>
+
+            <h2 id="nombre-producto">Cargando...</h2>
+
+            <p id="precio-producto" class="precio"></p>
+
+            <h3>Descripción del Producto</h3>
+
+            <p id="desc-producto" class="descripcion">
+                Cargando información del producto...
+            </p>
+
+            <div class="acciones">
+                <button
+                    id="btn-agregar"
+                    class="btn-comprar"
+                    type="button"
+                >
+                    Agregar al Carrito
+                </button>
+            </div>
+
+            <a href="play.html" class="volver">
+                ← Volver a productos de PlayStation
+            </a>
+        </div>
+
+    </div>
+
+    <div class="pie">
+        <p>© 2026 Mi página de videojuegos</p>
+        <p>Todos los derechos reservados</p>
+    </div>
+
+    <script>
+        const boton = document.querySelector(".menu_btn");
+        const menu = document.querySelector(".opciones");
+
+        boton.addEventListener("click", function () {
+            menu.classList.toggle("mostrar");
+        });
+
+        const parametros = new URLSearchParams(window.location.search);
+        const idJuego = parametros.get("juego");
+
+        const productosData = {
+            "ps4-fat": {
+                nombre: "PS4 Fat",
+                precio: "S/ 899.99",
+                imagen: "img/P_fat.jpg",
+                descripcion: "La consola clásica de Sony con un rendimiento sólido. Disfruta de un vasto catálogo de juegos exclusivos de la generación pasada con la mejor relación calidad-precio."
+            },
+
+            "ps4-slim": {
+                nombre: "PS4 Slim",
+                precio: "S/ 999.99",
+                imagen: "img/P_slim.webp",
+                descripcion: "Diseño más estilizado, ligero y eficiente en consumo energético. La PS4 Slim te ofrece la misma potencia increíble en un chasis más silencioso y compacto."
+            },
+
+            "ps4-pro": {
+                nombre: "PS4 Pro",
+                precio: "S/ 1,199.99",
+                imagen: "img/P_pro.jpg",
+                descripcion: "Experimenta el juego en alta definición con soporte para resolución 4K y tasas de cuadros por segundo más estables y fluidas en tus títulos favoritos."
+            },
+
+            "ps5-fat": {
+                nombre: "PS5 Fat",
+                precio: "S/ 2,199.99",
+                imagen: "img/P_5fat.png",
+                descripcion: "La nueva generación de videojuegos ha llegado. Con un disco de estado sólido (SSD) ultrarrápido, retroalimentación háptica y audio 3D inmersivo."
+            },
+
+            "ps5-slim": {
+                nombre: "PS5 Slim",
+                precio: "S/ 2,099.99",
+                imagen: "img/P_5slim.png",
+                descripcion: "La potencia de la PlayStation 5 en un factor de forma reducido. Menor tamaño, misma velocidad asombrosa y con unidad de disco incorporada."
+            },
+
+            "ps5-pro": {
+                nombre: "PS5 Pro",
+                precio: "S/ 3,199.99",
+                imagen: "img/P_5pro.png",
+                descripcion: "La cúspide del rendimiento en consolas. Diseñada para los jugadores más exigentes con trazado de rayos avanzado y tecnología de reescalado por IA."
+            },
+
+            "ps-portal": {
+                nombre: "PS Portal",
+                precio: "S/ 899.99",
+                imagen: "img/P_portal.png",
+                descripcion: "Lleva los juegos de tu PS5 a la palma de tu mano. El reproductor remoto PlayStation Portal te conecta mediante Wi-Fi a tu consola para jugar en cualquier habitación."
+            },
+
+            "ps-vr2": {
+                nombre: "PS VR2",
+                precio: "S/ 2,399.99",
+                imagen: "img/P_vr2.webp",
+                descripcion: "Siente una nueva realidad con gráficos 4K HDR, seguimiento ocular y los innovadores mandos PlayStation VR2 Sense que te sumergen por completo en los mundos virtuales."
+            },
+
+            "audifonos-ps5": {
+                nombre: "Audífonos Pulse 3D",
+                precio: "S/ 399.99",
+                imagen: "img/P_audifonos.webp",
+                descripcion: "Diseñados específicamente para ofrecer audio en 3D en las consolas PlayStation 5. Cuentan con diseño elegante, micrófonos duales con cancelación de ruido y carga USB-C."
+            },
+
+            "camara-ps5": {
+                nombre: "Cámara HD PS5",
+                precio: "S/ 249.99",
+                imagen: "img/P_camara.jpg",
+                descripcion: "Con lentes duales para captura en 1080p y un soporte integrado, la cámara HD se integra perfectamente con las herramientas de eliminación de fondo de la PS5."
+            },
+
+            "puerto-carga": {
+                nombre: "Base de carga DualSense",
+                precio: "S/ 129.99",
+                imagen: "img/P_carga.webp",
+                descripcion: "Carga hasta dos mandos inalámbricos DualSense simultáneamente sin tener que conectarlos a tu consola PlayStation 5."
+            },
+
+            "cobertura-ps5": {
+                nombre: "Tapas / Cobertura PS5",
+                precio: "S/ 189.99",
+                imagen: "img/P_cover.webp",
+                descripcion: "Personaliza el aspecto de tu consola PlayStation 5 con estas cubiertas intercambiables de alta calidad, fáciles de instalar."
+            }
+        };
+
+        if (productosData[idJuego]) {
+            const producto = productosData[idJuego];
+
+            document.getElementById("nombre-producto").textContent =
+                producto.nombre;
+
+            document.getElementById("precio-producto").textContent =
+                producto.precio;
+
+            document.getElementById("img-producto").src =
+                producto.imagen;
+
+            document.getElementById("desc-producto").textContent =
+                producto.descripcion;
+
+            document.title = producto.nombre + " - GamesCore";
+        } else {
+            document.getElementById("nombre-producto").textContent =
+                "Producto no encontrado";
+
+            document.getElementById("precio-producto").textContent = "";
+
+            document.getElementById("desc-producto").textContent =
+                "Lo sentimos, el producto que buscas no existe o el enlace es incorrecto.";
+
+            document.getElementById("img-producto").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

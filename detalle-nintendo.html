@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Nintendo - GamesCore</title>
+    <link rel="stylesheet" href="estilo3.css">
+    <style>
+        .contenedor-detalle {
+            
+            max-width: 900px;
+            margin: 100px auto 0px auto ;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .detalle-img {
+            width: 300px;
+            height: 320px;
+            object-fit: contain;
+            border-radius: 10px;
+            background-color: #f8f8f8;
+            padding: 10px;
+        }
+        .detalle-info {
+            max-width: 450px;
+            flex: 1;
+        }
+        .tag-marca {
+            display: inline-block;
+            background-color: rgb(235, 9, 9);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .precio {
+            font-size: 28px;
+            color: rgb(235, 9, 9);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .btn-comprar {
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);    
+            border: 1px solid red;        
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .btn-comprar:hover {
+            color: white;
+            transform: scale(1.03);
+            background-color: rgb(245, 0, 0);
+        }
+        .volver {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+        }
+        body{
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="encabezado">
+        <h1 id="titulo">GamesCore</h1>
+        <label for="menu" class="menu_btn">☰</label>
+        <div class="opciones">
+            <a id="opcion" href="index.html">Inicio</a>
+            <a id="opcion" href="nintendo.html">Nintendo</a>
+            <a id="opcion" href="play.html">PlayStation</a>
+            <a id="opcion" href="formulario.html">Contacto</a>
+            <a id="opcion" href="carrito.html" class="carrito-btn">🛒</a>
+        </div>  
+    </div>
+
+    <div class="contenedor-detalle">
+        <div>
+
+               
+                </ul>            <img id="img-producto" class="detalle-img" src="" alt="Producto Nintendo">
+        </div>
+
+        <div class="detalle-info">
+            <span class="tag-marca">Nintendo</span>
+            <h1 id="titulo-producto" style="color: #222; margin-top: 5px;"></h1>
+            <p id="precio-producto" class="precio"></p>
+
+            <h3>Descripción del Producto</h3>
+            <p id="desc-producto" style="color: #555; line-height: 1.6; padding: 10px 0;">
+                Cargando información del producto...
+            </p>
+
+            <button id="btn-agregar" class="btn-comprar">Agregar al Carrito</button>
+            <br>
+            <a href="nintendo.html" class="volver">← Volver a productos de Nintendo</a>
+        </div>
+    </div>
+
+    <div class="pie" style="padding-top: 100px;">
+        <p>© 2026 Mi página de videojuegos</p>
+        <p>Todos los derechos reservados</p>
+    </div>
+
+    <script>
+        const productosNintendo = {
+            'switch': {
+                titulo: 'Nintendo Switch',
+                precio: 1399.99,
+                imagen: 'img/N_consola.png',
+                descripcion: 'La consola versátil que se transforma de sobremesa a portátil. Juega en tu televisor o llévala a donde quieras con sus controles Joy-Con.'
+            },
+            'lite': {
+                titulo: 'Nintendo Switch LITE',
+                precio: 899.99,
+                imagen: 'img/N_lite.avif',
+                descripcion: 'Diseñada específicamente para el juego portátil. Compacta, ligera y con controles integrados, ideal para llevar tus juegos a todas partes.'
+            },
+            'oled': {
+                titulo: 'Nintendo Switch OLED',
+                precio: 1699.99,
+                imagen: 'img/N_oled.avif',
+                descripcion: 'Disfruta de colores vivos y un contraste definido con una pantalla OLED de 7 pulgadas. Incluye soporte ajustable amplio y 64 GB de almacenamiento.'
+            },
+            'switch-2': {
+                titulo: 'Nintendo Switch 2',
+                precio: 2499.99,
+                imagen: 'img/N_2.avif',
+                descripcion: 'La nueva generación de consolas híbridas de Nintendo con mayor potencia, gráficos mejorados y nuevas experiencias de juego.'
+            },
+            'pro-controller': {
+                titulo: 'Pro Controller',
+                precio: 279.99,
+                imagen: 'img/N_mando.png',
+                descripcion: 'Mando de estilo tradicional para Nintendo Switch que mejora la comodidad durante sesiones de juego prolongadas en modo televisor.'
+            },
+            'joycon': {
+                titulo: 'Mando Joy-con',
+                precio: 329.99,
+                imagen: 'img/N_joycons.avif',
+                descripcion: 'Juego de mandos versátiles que se pueden usar juntos o por separado, con control de movimiento y vibración HD integrada.'
+            },
+            'pro-controller-2': {
+                titulo: 'Pro Controller 2',
+                precio: 319.99,
+                imagen: 'img/N_mando2.png',
+                descripcion: 'Versión avanzada del mando profesional con mejor ergonomía, botones adicionales personalizables y mayor duración de batería.'
+            },
+            'joycon-2': {
+                titulo: 'Mando Joy-con 2',
+                precio: 359.99,
+                imagen: 'img/N_joycons2.webp',
+                descripcion: 'Nuevos mandos rediseñados para la nueva generación, ofreciendo mayor precisión y respuesta háptica mejorada.'
+            },
+            'modulo-carga': {
+                titulo: 'Módulo de carga Joy-Con',
+                precio: 119.99,
+                imagen: 'img/N_carga_modulo.png',
+                descripcion: 'Base de carga práctica para mantener tus mandos Joy-Con siempre listos y con batería al 100% mientras no los usas.'
+            },
+            'protector': {
+                titulo: 'Protector de pantalla',
+                precio: 39.99,
+                imagen: 'img/N_protectorp.jpg',
+                descripcion: 'Vidrio templado de alta resistencia que protege la pantalla de tu consola contra rayones, golpes y huellas dactilares.'
+            },
+            'funda': {
+                titulo: 'Funda de transporte',
+                precio: 79.99,
+                imagen: 'img/N_funda.png',
+                descripcion: 'Estuche rígido de viaje diseñado para proteger tu consola y almacenar tarjetas de juego de manera segura.'
+            },
+            'soporte': {
+                titulo: 'Soporte para Joy-Con',
+                precio: 49.99,
+                imagen: 'img/N_mando_soporte.png',
+                descripcion: 'Empuñadura cómoda para combinar tus dos mandos Joy-Con en un control tradicional de tamaño completo.'
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const clave = params.get('item') || '';
+        const productoActual = productosNintendo[clave] || productosNintendo['oled'];
+
+        document.getElementById('titulo-producto').innerText = productoActual.titulo;
+        document.getElementById('precio-producto').innerText = `S/ ${productoActual.precio.toFixed(2)}`;
+        document.getElementById('img-producto').src = productoActual.imagen;
+        document.getElementById('desc-producto').innerText = productoActual.descripcion;
+
+          const boton = document.querySelector(".menu_btn");
+        const menu = document.querySelector(".opciones");
+
+        boton.addEventListener("mouseenter", function() {
+            menu.classList.toggle("mostrar");
+        });
+        ;
+    </script>
+</body>
+</html>
